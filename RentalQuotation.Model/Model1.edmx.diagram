@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2b248ea6346c412c915c2316a052936e" Name="Diagram1">
+        <EntityTypeShape EntityType="RentalQuotationModel.Menu" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="RentalQuotationModel.QuotationDetail" Width="1.5" PointX="8" PointY="3.25" />
+        <EntityTypeShape EntityType="RentalQuotationModel.QuotationList" Width="1.5" PointX="5.75" PointY="2.25" />
+        <EntityTypeShape EntityType="RentalQuotationModel.Role" Width="1.5" PointX="0.75" PointY="3.875" />
+        <EntityTypeShape EntityType="RentalQuotationModel.RoleMenu" Width="1.5" PointX="3" PointY="2.75" />
+        <EntityTypeShape EntityType="RentalQuotationModel.User" Width="1.5" PointX="3" PointY="6.25" />
+        <AssociationConnector Association="RentalQuotationModel.FK_RollMenu_Menu" />
+        <AssociationConnector Association="RentalQuotationModel.FK_QuotationDetail_QuotationList" />
+        <AssociationConnector Association="RentalQuotationModel.FK_RollMenu_Role" />
+        <AssociationConnector Association="RentalQuotationModel.FK_Users_Role" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

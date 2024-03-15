@@ -1,0 +1,496 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="RentalQuotationModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Menu">
+          <Key>
+            <PropertyRef Name="MenuId" />
+          </Key>
+          <Property Name="MenuId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MenuName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ControllerName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ActionName" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="QuotationDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="QuotationId" Type="int" Nullable="false" />
+          <Property Name="Make" Type="nvarchar" MaxLength="50" />
+          <Property Name="Model" Type="nvarchar" MaxLength="50" />
+          <Property Name="Group" Type="nvarchar" MaxLength="50" />
+          <Property Name="CheckOutLocation" Type="nvarchar" MaxLength="50" />
+          <Property Name="CheckInLocation" Type="nvarchar" MaxLength="50" />
+          <Property Name="NoOfVehicle" Type="int" />
+          <Property Name="RentalSum" Type="int" />
+          <Property Name="Remarks" Type="nvarchar" MaxLength="50" />
+          <Property Name="ParcelFuelAmount" Type="bit" />
+          <Property Name="Delivery" Type="bit" />
+          <Property Name="Collection" Type="bit" />
+          <Property Name="SCDW" Type="bit" />
+          <Property Name="WS" Type="bit" />
+          <Property Name="BabySeat" Type="bit" />
+          <Property Name="Wifi" Type="bit" />
+          <Property Name="ADI" Type="bit" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedDate" Type="date" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDate" Type="date" />
+        </EntityType>
+        <EntityType Name="QuotationList">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Company" Type="nvarchar" MaxLength="50" />
+          <Property Name="Branch" Type="nvarchar" MaxLength="50" />
+          <Property Name="QuotationCategory" Type="nvarchar" MaxLength="50" />
+          <Property Name="Debitor" Type="nvarchar" MaxLength="50" />
+          <Property Name="CustomerName" Type="nvarchar" MaxLength="50" />
+          <Property Name="PhoneCode" Type="nvarchar" MaxLength="10" />
+          <Property Name="PhoneNo" Type="nvarchar" MaxLength="20" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="CutCategory" Type="nvarchar" MaxLength="50" />
+          <Property Name="Nationality" Type="nvarchar" MaxLength="50" />
+          <Property Name="IdType" Type="int" />
+          <Property Name="IdNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="IssueDate" Type="date" />
+          <Property Name="ExpirayDate" Type="date" />
+          <Property Name="AddressLine" Type="nvarchar" MaxLength="50" />
+          <Property Name="Country" Type="nvarchar" MaxLength="50" />
+          <Property Name="QuotationDate" Type="date" />
+          <Property Name="QuotationExipryDate" Type="date" />
+          <Property Name="RentalStartDate" Type="date" />
+          <Property Name="RentalEndDate" Type="date" />
+          <Property Name="RentalDuration" Type="int" />
+          <Property Name="TotalRentalSum" Type="int" />
+          <Property Name="TotalAditionalCost" Type="int" />
+          <Property Name="TotalAmount" Type="int" />
+          <Property Name="TotalNoOfVehicle" Type="int" />
+          <Property Name="QuotationStatus" Type="nvarchar" MaxLength="20" />
+          <Property Name="Remarks" Type="nvarchar" MaxLength="500" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedDate" Type="date" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDate" Type="date" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleName" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RoleMenu">
+          <Key>
+            <PropertyRef Name="RoleMenuId" />
+          </Key>
+          <Property Name="RoleMenuId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleId" Type="int" Nullable="false" />
+          <Property Name="MenuId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PhoneNo" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="RoleId" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_QuotationDetail_QuotationList">
+          <End Role="QuotationList" Type="Self.QuotationList" Multiplicity="1" />
+          <End Role="QuotationDetail" Type="Self.QuotationDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QuotationList">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="QuotationDetail">
+              <PropertyRef Name="QuotationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RollMenu_Menu">
+          <End Role="Menu" Type="Self.Menu" Multiplicity="1" />
+          <End Role="RoleMenu" Type="Self.RoleMenu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Menu">
+              <PropertyRef Name="MenuId" />
+            </Principal>
+            <Dependent Role="RoleMenu">
+              <PropertyRef Name="MenuId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RollMenu_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="RoleMenu" Type="Self.RoleMenu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="RoleId" />
+            </Principal>
+            <Dependent Role="RoleMenu">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="RoleId" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="RentalQuotationModelStoreContainer">
+          <EntitySet Name="Menu" EntityType="Self.Menu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="QuotationDetail" EntityType="Self.QuotationDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="QuotationList" EntityType="Self.QuotationList" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RoleMenu" EntityType="Self.RoleMenu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_QuotationDetail_QuotationList" Association="Self.FK_QuotationDetail_QuotationList">
+            <End Role="QuotationList" EntitySet="QuotationList" />
+            <End Role="QuotationDetail" EntitySet="QuotationDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RollMenu_Menu" Association="Self.FK_RollMenu_Menu">
+            <End Role="Menu" EntitySet="Menu" />
+            <End Role="RoleMenu" EntitySet="RoleMenu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RollMenu_Role" Association="Self.FK_RollMenu_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="RoleMenu" EntitySet="RoleMenu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_Role" Association="Self.FK_Users_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="RentalQuotationModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="RentalQuotationEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Menus" EntityType="RentalQuotationModel.Menu" />
+          <EntitySet Name="QuotationDetails" EntityType="RentalQuotationModel.QuotationDetail" />
+          <EntitySet Name="QuotationLists" EntityType="RentalQuotationModel.QuotationList" />
+          <EntitySet Name="Roles" EntityType="RentalQuotationModel.Role" />
+          <EntitySet Name="RoleMenus" EntityType="RentalQuotationModel.RoleMenu" />
+          <EntitySet Name="Users" EntityType="RentalQuotationModel.User" />
+          <AssociationSet Name="FK_RollMenu_Menu" Association="RentalQuotationModel.FK_RollMenu_Menu">
+            <End Role="Menu" EntitySet="Menus" />
+            <End Role="RoleMenu" EntitySet="RoleMenus" />
+          </AssociationSet>
+          <AssociationSet Name="FK_QuotationDetail_QuotationList" Association="RentalQuotationModel.FK_QuotationDetail_QuotationList">
+            <End Role="QuotationList" EntitySet="QuotationLists" />
+            <End Role="QuotationDetail" EntitySet="QuotationDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RollMenu_Role" Association="RentalQuotationModel.FK_RollMenu_Role">
+            <End Role="Role" EntitySet="Roles" />
+            <End Role="RoleMenu" EntitySet="RoleMenus" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_Role" Association="RentalQuotationModel.FK_Users_Role">
+            <End Role="Role" EntitySet="Roles" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Menu">
+          <Key>
+            <PropertyRef Name="MenuId" />
+          </Key>
+          <Property Name="MenuId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MenuName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ControllerName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ActionName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="RoleMenus" Relationship="RentalQuotationModel.FK_RollMenu_Menu" FromRole="Menu" ToRole="RoleMenu" />
+        </EntityType>
+        <EntityType Name="QuotationDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="QuotationId" Type="Int32" Nullable="false" />
+          <Property Name="Make" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Model" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Group" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CheckOutLocation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CheckInLocation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NoOfVehicle" Type="Int32" />
+          <Property Name="RentalSum" Type="Int32" />
+          <Property Name="Remarks" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ParcelFuelAmount" Type="Boolean" />
+          <Property Name="Delivery" Type="Boolean" />
+          <Property Name="Collection" Type="Boolean" />
+          <Property Name="SCDW" Type="Boolean" />
+          <Property Name="WS" Type="Boolean" />
+          <Property Name="BabySeat" Type="Boolean" />
+          <Property Name="Wifi" Type="Boolean" />
+          <Property Name="ADI" Type="Boolean" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="QuotationList" Relationship="RentalQuotationModel.FK_QuotationDetail_QuotationList" FromRole="QuotationDetail" ToRole="QuotationList" />
+        </EntityType>
+        <EntityType Name="QuotationList">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Company" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Branch" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="QuotationCategory" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Debitor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CutCategory" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Nationality" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IdType" Type="Int32" />
+          <Property Name="IdNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IssueDate" Type="DateTime" Precision="0" />
+          <Property Name="ExpirayDate" Type="DateTime" Precision="0" />
+          <Property Name="AddressLine" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="QuotationDate" Type="DateTime" Precision="0" />
+          <Property Name="QuotationExipryDate" Type="DateTime" Precision="0" />
+          <Property Name="RentalStartDate" Type="DateTime" Precision="0" />
+          <Property Name="RentalEndDate" Type="DateTime" Precision="0" />
+          <Property Name="RentalDuration" Type="Int32" />
+          <Property Name="TotalRentalSum" Type="Int32" />
+          <Property Name="TotalAditionalCost" Type="Int32" />
+          <Property Name="TotalAmount" Type="Int32" />
+          <Property Name="TotalNoOfVehicle" Type="Int32" />
+          <Property Name="QuotationStatus" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Remarks" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="QuotationDetails" Relationship="RentalQuotationModel.FK_QuotationDetail_QuotationList" FromRole="QuotationList" ToRole="QuotationDetail" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="RoleMenus" Relationship="RentalQuotationModel.FK_RollMenu_Role" FromRole="Role" ToRole="RoleMenu" />
+          <NavigationProperty Name="Users" Relationship="RentalQuotationModel.FK_Users_Role" FromRole="Role" ToRole="User" />
+        </EntityType>
+        <EntityType Name="RoleMenu">
+          <Key>
+            <PropertyRef Name="RoleMenuId" />
+          </Key>
+          <Property Name="RoleMenuId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleId" Type="Int32" Nullable="false" />
+          <Property Name="MenuId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Menu" Relationship="RentalQuotationModel.FK_RollMenu_Menu" FromRole="RoleMenu" ToRole="Menu" />
+          <NavigationProperty Name="Role" Relationship="RentalQuotationModel.FK_RollMenu_Role" FromRole="RoleMenu" ToRole="Role" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RoleId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Role" Relationship="RentalQuotationModel.FK_Users_Role" FromRole="User" ToRole="Role" />
+        </EntityType>
+        <Association Name="FK_RollMenu_Menu">
+          <End Type="RentalQuotationModel.Menu" Role="Menu" Multiplicity="1" />
+          <End Type="RentalQuotationModel.RoleMenu" Role="RoleMenu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Menu">
+              <PropertyRef Name="MenuId" />
+            </Principal>
+            <Dependent Role="RoleMenu">
+              <PropertyRef Name="MenuId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_QuotationDetail_QuotationList">
+          <End Type="RentalQuotationModel.QuotationList" Role="QuotationList" Multiplicity="1" />
+          <End Type="RentalQuotationModel.QuotationDetail" Role="QuotationDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QuotationList">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="QuotationDetail">
+              <PropertyRef Name="QuotationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RollMenu_Role">
+          <End Type="RentalQuotationModel.Role" Role="Role" Multiplicity="1" />
+          <End Type="RentalQuotationModel.RoleMenu" Role="RoleMenu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="RoleId" />
+            </Principal>
+            <Dependent Role="RoleMenu">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_Role">
+          <End Type="RentalQuotationModel.Role" Role="Role" Multiplicity="1" />
+          <End Type="RentalQuotationModel.User" Role="User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="RoleId" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="RentalQuotationModelStoreContainer" CdmEntityContainer="RentalQuotationEntities">
+          <EntitySetMapping Name="Menus">
+            <EntityTypeMapping TypeName="RentalQuotationModel.Menu">
+              <MappingFragment StoreEntitySet="Menu">
+                <ScalarProperty Name="ActionName" ColumnName="ActionName" />
+                <ScalarProperty Name="ControllerName" ColumnName="ControllerName" />
+                <ScalarProperty Name="MenuName" ColumnName="MenuName" />
+                <ScalarProperty Name="MenuId" ColumnName="MenuId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QuotationDetails">
+            <EntityTypeMapping TypeName="RentalQuotationModel.QuotationDetail">
+              <MappingFragment StoreEntitySet="QuotationDetail">
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ADI" ColumnName="ADI" />
+                <ScalarProperty Name="Wifi" ColumnName="Wifi" />
+                <ScalarProperty Name="BabySeat" ColumnName="BabySeat" />
+                <ScalarProperty Name="WS" ColumnName="WS" />
+                <ScalarProperty Name="SCDW" ColumnName="SCDW" />
+                <ScalarProperty Name="Collection" ColumnName="Collection" />
+                <ScalarProperty Name="Delivery" ColumnName="Delivery" />
+                <ScalarProperty Name="ParcelFuelAmount" ColumnName="ParcelFuelAmount" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="RentalSum" ColumnName="RentalSum" />
+                <ScalarProperty Name="NoOfVehicle" ColumnName="NoOfVehicle" />
+                <ScalarProperty Name="CheckInLocation" ColumnName="CheckInLocation" />
+                <ScalarProperty Name="CheckOutLocation" ColumnName="CheckOutLocation" />
+                <ScalarProperty Name="Group" ColumnName="Group" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="Make" ColumnName="Make" />
+                <ScalarProperty Name="QuotationId" ColumnName="QuotationId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QuotationLists">
+            <EntityTypeMapping TypeName="RentalQuotationModel.QuotationList">
+              <MappingFragment StoreEntitySet="QuotationList">
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="QuotationStatus" ColumnName="QuotationStatus" />
+                <ScalarProperty Name="TotalNoOfVehicle" ColumnName="TotalNoOfVehicle" />
+                <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+                <ScalarProperty Name="TotalAditionalCost" ColumnName="TotalAditionalCost" />
+                <ScalarProperty Name="TotalRentalSum" ColumnName="TotalRentalSum" />
+                <ScalarProperty Name="RentalDuration" ColumnName="RentalDuration" />
+                <ScalarProperty Name="RentalEndDate" ColumnName="RentalEndDate" />
+                <ScalarProperty Name="RentalStartDate" ColumnName="RentalStartDate" />
+                <ScalarProperty Name="QuotationExipryDate" ColumnName="QuotationExipryDate" />
+                <ScalarProperty Name="QuotationDate" ColumnName="QuotationDate" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="AddressLine" ColumnName="AddressLine" />
+                <ScalarProperty Name="ExpirayDate" ColumnName="ExpirayDate" />
+                <ScalarProperty Name="IssueDate" ColumnName="IssueDate" />
+                <ScalarProperty Name="IdNumber" ColumnName="IdNumber" />
+                <ScalarProperty Name="IdType" ColumnName="IdType" />
+                <ScalarProperty Name="Nationality" ColumnName="Nationality" />
+                <ScalarProperty Name="CutCategory" ColumnName="CutCategory" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+                <ScalarProperty Name="PhoneCode" ColumnName="PhoneCode" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="Debitor" ColumnName="Debitor" />
+                <ScalarProperty Name="QuotationCategory" ColumnName="QuotationCategory" />
+                <ScalarProperty Name="Branch" ColumnName="Branch" />
+                <ScalarProperty Name="Company" ColumnName="Company" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="RentalQuotationModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RoleMenus">
+            <EntityTypeMapping TypeName="RentalQuotationModel.RoleMenu">
+              <MappingFragment StoreEntitySet="RoleMenu">
+                <ScalarProperty Name="MenuId" ColumnName="MenuId" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="RoleMenuId" ColumnName="RoleMenuId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="RentalQuotationModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

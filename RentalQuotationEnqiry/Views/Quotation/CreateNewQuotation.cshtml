@@ -1,0 +1,544 @@
+﻿
+@{
+    ViewBag.Title = "Quotation";
+}
+
+
+
+<div class="container" style="margin-top: 3%;">
+    <div style="border-right: 1px solid black; border-left: 1px solid black; border-bottom: 1px solid black; margin-bottom: 40px; margin-right: 40px; border-top: 1px solid black;">
+        <div style="background-color: #ece7e7; height: 50px; width: 100%; margin-bottom: 1%">
+            <div class="col-3 text-left">
+                <h1 style="font-size: 18px; color: #337ab7; float: left; text-transform: uppercase; padding-left: 25px;">Quotation</h1>
+            </div>
+            <div class="col-3 text-right">
+                <input type="button" id="btnCreateQuotation" value="Create" class="btn btn-primary form-control" />
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="ddlCompany">Company</label><span>  Te</span>
+                <select class="form-control" id="ddlCompany">
+                    <option value="0">Select Company</option>
+                    <option value="1">AVIS 1</option>
+                    <option value="2">AVIS 2</option>
+                    <option value="3">AVIS 3</option>
+                    <option value="4">AVIS 4</option>
+                </select>
+            </div>
+
+            <div class="form-group col-md-4">
+                <label for="lblBranch">Branch</label>
+                <select class="form-control" id="ddlBranch">
+                    <option value="0">Select Branch</option>
+                    <option value="1">Branch 1</option>
+                    <option value="2">Branch 2</option>
+                    <option value="3">Branch 3</option>
+                    <option value="4">Branch 4</option>
+                </select>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="lblBranch">Quotation Category</label>
+                <select class="form-control" id="ddlQuotationCategory">
+                    <option value="0">Select Quotation Category</option>
+                    <option value="1">Domestic/international 1</option>
+                    <option value="2">Domestic/international 2</option>
+                    <option value="3">Domestic/international 3</option>
+                    <option value="4">Domestic/international 4</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="lblDebitor">Debitor</label>
+                <select class="form-control" id="ddlDebitor">
+                    <option value="0">Select Debitor</option>
+                    <option value="1">Debitor 1</option>
+                    <option value="2">Debitor 2</option>
+                    <option value="3">Debitor 3</option>
+                    <option value="4">Debitor 4</option>
+                </select>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="lblBranch">Customer Name</label>
+                <input type="text" id="txtCustomerName" class="form-control" placeholder="Customer name">
+            </div>
+
+            <div class="col-md-4">
+                <div class="form-group col-md-4">
+                    <label for="lblBranch">Phone No:</label>
+                    <input type="text" id="txtPhoneCode" class="form-control" placeholder="Code">
+                </div>
+                <div class="form-group col-md-7" style="margin-top: 24px;">
+                    <input type="text" id="txtPhoneNumber" class="form-control" placeholder="Customer name">
+                </div>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="lblCompany">Email</label>
+                <input type="email" id="txtEmail" class="form-control" placeholder="Enter email">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="lblBranch">Cust Category</label>
+                <select class="form-control" id="ddlCustCategory">
+                    <option value="0">Select Category</option>
+                    <option value="1">Cust Category 1</option>
+                    <option value="2">Cust Category 2</option>
+                    <option value="3">Cust Category 3</option>
+                    <option value="4">Cust Category 4</option>
+                </select>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="lblBranch">Natioanlity</label>
+                <select class="form-control" id="ddlNatioanlity">
+                    <option value="0">Select Natioanlity</option>
+                    <option value="1">Natioanlity 1</option>
+                    <option value="2">Natioanlity 2</option>
+                    <option value="3">Natioanlity 3</option>
+                    <option value="4">Natioanlity 4</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="lblIdType">Id Type</label>
+                <select class="form-control" id="ddlIdType">
+                    <option value="0">Slect Id Type</option>
+                    <option value="1">Id Type 1</option>
+                    <option value="2">Id Type 2</option>
+                    <option value="3">Id Type 3</option>
+                    <option value="4">Id Type 4</option>
+                </select>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="lblIdNumber">Id Number</label>
+                <input type="text" id="txtIdNumber" class="form-control" placeholder="Id Number">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="lblIssueDate">Issue Date</label>
+                <input type="date" id="txtIssueDate" class="form-control" placeholder="Issue Date">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="lblExpiryDate">Expiry Date</label>
+                <input type="date" id="txtExpiryDate" class="form-control" placeholder="Expiry Date">
+            </div>
+
+            <div class="form-group col-md-4">
+                <label for="lblAdressLine">Address Line</label>
+                <input type="text" id="txtAdressLine" class="form-control" placeholder="Address Line">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="lblCountry">Country</label>
+                <select class="form-control" id="ddlCountry">
+                    <option value="0">Select Country</option>
+                    <option value="1">Country 1</option>
+                    <option value="2">Country 2</option>
+                    <option value="3">Country 3</option>
+                    <option value="4">Country 4</option>
+                </select>
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-5 col-md-offset-1" style="border-right: 1px solid black; border-left: 1px solid black; border-bottom: 1px solid black; margin-right: 20px; border-top: 1px solid black;">
+
+                <div style="background-color: #ece7e7; height: 50px;">
+                    <div class="col-3 text-left">
+                        <h1 style="font-size: 18px; color: #337ab7; float: left; padding-left: 25px;">Costing Detail</h1>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        <label for="lblIssueDate">Quotation Date</label>
+                        <input type="date" id="txtQuotationDate" class="form-control" placeholder="Quotation Date">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        <label for="lblIssueDate">Quotation Expiray Date</label>
+                        <input type="date" id="txtQuotationExpirayDate" class="form-control" placeholder="Quotation Expiray Date">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        <label for="lblRentalStatusDate">Rental Start Date</label>
+                        <input type="date" id="txtRentalStartDate" class="form-control" placeholder="Rental Start Date">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        <label for="lblRentalEndDate">Rental End Date</label>
+                        <input type="date" id="txtRentalEndDate" class="form-control" placeholder="Rental End Date">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        <label for="lblRentalDuration">Rental Duration</label>
+                        <input type="text" id="txtRentalDuration" readonly class="form-control" placeholder="Rental Duration">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-5" style="border-right: 1px solid black; border-left: 1px solid black; border-bottom: 1px solid black; margin-bottom: 20px; border-top: 1px solid black;">
+
+                <div style="background-color: #ece7e7; height: 50px;">
+                    <div class="col-3 text-left">
+                        <h1 style="font-size: 18px; color: #337ab7; float: left; padding-left: 25px;">Rental Sum</h1>
+                    </div>
+
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        <label for="lblTotalRentalSum">Total Rental Sum</label>
+                        <input type="text" id="txtTotalRentalSum" readonly class="form-control" placeholder="Total Rental Sum">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        <label for="lblTotalAdditionalCost">Total Additional Cost</label>
+                        <input type="text" id="txtTotalAdditionalCost" readonly class="form-control" placeholder="Total Additional Cost">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        <label for="lblTotalAmount">Total Amount</label>
+                        <input type="text" id="txtTotalAmount" readonly class="form-control" placeholder="Total Amount">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-12" style="margin-bottom: 20%;">
+                        <label for="lblTotalNoVehicle">Total No Of Vehicle</label>
+                        <input type="text" id="txtTotalNoVehicle" readonly class="form-control" placeholder="Total No Of Vehicle">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+
+            <div class="col-md-10 col-md-offset-1" style="border-right: 1px solid black; border-left: 1px solid black; border-bottom: 1px solid black; margin-bottom: 20px; border-top: 1px solid black;">
+
+                <div style="background-color: #ece7e7; height: 50px;">
+                    <div class="col-3 text-left">
+                        <h1 style="font-size: 18px; color: #337ab7; float: left; padding-left: 25px;">Cost Detail</h1>
+                    </div>
+                    <div class="col-3 text-right">
+                        <input type="button" id="btnAddCostComponent" value="+Add New Cost Components" class="btn btn-primary form-control" />
+                    </div>
+                </div>
+
+                <table id="tbleDetail" class="table table-striped table-bordered" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Make</th>
+                            <th>Model</th>
+                            <th>Group</th>
+                            <th>No Of Vehicle</th>
+                            <th>Rental Status</th>
+                            <th>Total</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            @*<td class="make">Honda</td>
+                            <td class="model">70</td>
+                            <td class="group">Bike</td>
+                            <td class="no-of-vehicle">2</td>
+                            <td class="rental-status">Sale</td>
+                            <td class="total">120</td>
+                            <td>
+                                <button type="button">view</button>
+                                <button type="button">edit</button>
+                                <button type="button">delete</button>
+                            </td>*@
+                        </tr>
+                    </tbody>
+                </table>
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="ModelDetail">
+    <div class="modal-dialog" style="width: 100%;height: 100%;margin: 0;padding: 0;">
+        <div class="modal-content" style="height: auto; min-height: 100%; border-radius: 0;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">Add New Quotation Detail</h4>
+            </div>
+            <div class="modal-body">
+                @{
+                    Html.RenderPartial("_AddNewCostCompo");
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    //$(function () {
+    //    $('.datePickerShow').datetimepicker();
+    //});
+    $('#btnCloseModel').click(function () {
+        $('#ModelDetail').modal('hide');
+        closeDetailDialogue();
+    });
+    var quotaionDetail = [];
+    $('#txtRentalEndDate').change(function () {
+        let startDate = $('#txtRentalStartDate').val();
+        let endDate = $('#txtRentalEndDate').val();
+        if (startDate < endDate) {
+
+            let start = new Date(startDate);
+            let end = new Date(endDate);
+            let diffDate = (end - start) / (1000 * 60 * 60 * 24);
+            let days = Math.round(diffDate);
+            $('#txtRentalDuration').val(days);
+        }
+        else {
+            alert('Start date must be lower then end date');
+        }
+    });
+
+    $("#btnCreateQuotation").click(function () {
+
+        if (CheckIsDataValid() == true) {
+
+            var modelData = {
+
+                Company: $("#ddlCompany option:selected").text(),
+                Branch: $("#ddlBranch option:selected").text(),
+                QuotationCategory: $("#ddlQuotationCategory option:selected").text(),
+
+                Debitor: $("#ddlDebitor option:selected").text(),
+                CustomerName: $('#txtCustomerName').val(),
+                PhoneCode: $('#txtPhoneCode').val(),
+                PhoneNo: $('#txtPhoneNumber').val(),
+
+                Email: $('#txtEmail').val(),
+                CutCategory: $("#ddlCustCategory option:selected").text(),
+                Nationality: $("#ddlNatioanlity option:selected").text(),
+
+                IdType: $("#ddlIdType option:selected").text(),
+                IdNumber: $('#txtIdNumber').val(),
+                IssueDate: $('#txtIssueDate').val(),
+
+                ExpirayDate: $('#txtExpiryDate').val(),
+                AddressLine: $('#txtAdressLine').val(),
+                Country: $("#ddlCountry option:selected").text(),
+
+                QuotationDate: $('#txtQuotationDate').val(),
+                QuotationExipryDate: $('#txtQuotationExpirayDate').val(),
+                RentalStartDate: $('#txtRentalStartDate').val(),
+                RentalEndDate: $('#txtRentalEndDate').val(),
+                RentalDuration: $('#txtRentalDuration').val(),
+
+                TotalRentalSum: $('#txtTotalRentalSum').val(),
+                TotalAditionalCost: $('#txtTotalAdditionalCost').val(),
+                TotalAmount: $('#txtTotalAmount').val(),
+                TotalNoOfVehicle: $('#txtTotalNoVehicle').val(),
+            };
+            modelData.QuotationDetails = quotaionDetail;
+
+            $.ajax({
+                url: "/Quotation/CreateQuotation",
+                contentType: "application/json;charset=utf-8",
+                data: JSON.stringify(modelData),
+                type: "POST",
+                dataType: "json",
+                success: function (response) {
+                    if (response.result == true) {
+                        alert("Saved successfully!");
+                    }
+                    else {
+                        alert(response.error);
+                    }
+                },
+                error: function (errormessage) {
+                    alert(errormessage.responseText);
+                }
+            });
+
+        }
+        else {
+            alert('Select Required Data First');
+        }
+    });
+
+    $('#btnAddCostComponent').click(function () {
+        if (CheckIsDataValid() == true) {
+            $('#ModelDetail').modal('show');
+        }
+        else {
+            alert('Select Required Data First');
+        }
+    });
+
+    function CheckIsDataValid() {
+        var isValid = true;
+        if ($('#ddlCompany').val() == '0') {
+            $("#ddlCompany").css("border-color", "red");
+            isValid = false;
+        }
+        if ($('#ddlBranch').val() == '0') {
+            $("#ddlBranch").css("border-color", "red");
+            isValid = false;
+        }
+        if ($('#ddlCustCategory').val() == '0') {
+            $("#ddlCustCategory").css("border-color", "red");
+            isValid = false;
+        }
+        if ($('#txtCustomerName').val() == '') {
+            $("#txtCustomerName").css("border-color", "red");
+            isValid = false;
+        }
+
+        if ($('#txtQuotationExpirayDate').val() == '') {
+            $("#txtQuotationExpirayDate").css("border-color", "red");
+            isValid = false;
+        }
+
+        if ($('#txtRentalStartDate').val() == '') {
+            $("#txtRentalStartDate").css("border-color", "red");
+            isValid = false;
+        }
+        if ($('#txtRentalEndDate').val() == '') {
+            $("#txtRentalEndDate").css("border-color", "red");
+            isValid = false;
+        }
+
+        return isValid;
+    }
+
+    $("#ddlCompany").change(function () {
+        if (this.value != '0') {
+            $("#ddlCompany").css("border-color", "#ccc");
+        }
+        else {
+            $("#ddlCompany").css("border-color", "red");
+        }
+    });
+    $("#ddlBranch").change(function () {
+
+        if (this.value != '0') {
+            $("#ddlBranch").css("border-color", "#ccc");
+        }
+        else {
+            $("#ddlBranch").css("border-color", "red");
+        }
+    });
+    $("#txtCustomerName").change(function () {
+
+        if (this.value != '') {
+            $("#txtCustomerName").css("border-color", "#ccc");
+        }
+        else {
+            $("#txtCustomerName").css("border-color", "red");
+        }
+    });
+    $("#ddlCustCategory").change(function () {
+
+        if (this.value != '0') {
+            $("#ddlCustCategory").css("border-color", "#ccc");
+        }
+        else {
+            $("#ddlCustCategory").css("border-color", "red");
+        }
+    });
+    $("#txtQuotationExpirayDate").change(function () {
+
+        if (this.value != '') {
+            $("#txtQuotationExpirayDate").css("border-color", "#ccc");
+        }
+        else {
+            $("#txtQuotationExpirayDate").css("border-color", "red");
+        }
+    });
+
+
+    $("#txtRentalStartDate").change(function () {
+
+        if (this.value != '') {
+            $("#txtRentalStartDate").css("border-color", "#ccc");
+        }
+        else {
+            $("#txtRentalStartDate").css("border-color", "red");
+        }
+    });
+    $("#txtRentalEndDate").change(function () {
+
+        if (this.value != '') {
+            $("#txtRentalEndDate").css("border-color", "#ccc");
+        }
+        else {
+            $("#txtRentalEndDate").css("border-color", "red");
+        }
+    });
+
+    function closeDetailDialogue() {
+        $("#tbleDetail tbody").html('');
+        let quotaionDetailHtml = "";
+        let totalRentalSum = 0;
+        let totalAmount = 0;
+        let totalNoOfVehicle = 0;
+        let additionalCost = 0;
+        let to
+        for (var i = 0; i < quotaionDetail.length; i++) {
+
+            totalRentalSum += parseInt(quotaionDetail[i].RentalSum);
+            totalNoOfVehicle += parseInt(quotaionDetail[i].NoOfVehicle);
+            let rowTotalAmount = parseInt(quotaionDetail[i].RentalSum) + parseInt(quotaionDetail[i].NoOfVehicle);
+            totalAmount += rowTotalAmount;
+            additionalCost += rowTotalAmount - parseInt(quotaionDetail[i].RentalSum);
+
+            let tr = `<tr>
+                            <td class="make">`+ quotaionDetail[i].Make+`</td>
+                            <td class="model">`+ quotaionDetail[i].Model +`</td>
+                            <td class="group">`+ quotaionDetail[i].Group +`</td>
+                            <td class="no-of-vehicle">`+ quotaionDetail[i].NoOfVehicle+`</td>
+                            <td class="rental-status">`+ quotaionDetail[i].RentalSum +`</td>
+                            <td class="total">`+ rowTotalAmount +`</td>
+                            <td>
+                                <button type="button">view</button>
+                                <button type="button">edit</button>
+                                <button class="delete" type="button">delete</button>
+                            </td>
+                        </tr>`;
+            quotaionDetailHtml = quotaionDetailHtml + tr;
+        }
+        $("#tbleDetail tbody").html(quotaionDetailHtml);
+
+        $('#txtTotalRentalSum').val(totalRentalSum);
+        $('#txtTotalNoVehicle').val(totalNoOfVehicle);
+        $('#txtTotalAmount').val(totalAmount);
+        $('#txtTotalAdditionalCost').val(additionalCost);
+
+    }
+
+</script>

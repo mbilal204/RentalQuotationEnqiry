@@ -1,0 +1,292 @@
+﻿
+<div class="text-center">
+
+    <div class="container mb-3" style="margin-top: 3%;">
+        <div class="col-md-12" style="border: 1px solid black; margin-right: 40px; border-top: 1px solid black;">
+            <div class="row" style="border:2px; background-color:lightblue;height: 40px;margin-top: 2px; width: 100%;">
+                <div class="col-md-12 text-left">
+                    <h1 style="font-size: 15px; color: black; float: left;">Add New Quotation Detail</h1>
+                </div>
+
+            </div>
+            <div class="form-group">
+
+                <div class="form-row ml-3">
+                    <div class="form-group form-inline col-md-4  mt-2">
+                        <label for="lblMake">Make</label>
+                        <select class="form-control ml-2" id="ddlMake" style="width: 14em;">
+                            <option value="0">NISSAN 1</option>
+                            <option value="1">NISSAN 2</option>
+                            <option value="2">NISSAN 3</option>
+                            <option value="3">NISSAN 4</option>
+                        </select>
+
+                    </div>
+                    <div class="form-group form-inline col-md-4  mt-2">
+                        <label for="lblModel">Model</label>
+                        <select class="form-control ml-2" id="ddlModel" style="width: 14em;">
+                            <option value="0">Sunny 1</option>
+                            <option value="1">Sunny 2</option>
+                            <option value="2">Sunny 3</option>
+                            <option value="3">Sunny 3</option>
+                        </select>
+                    </div>
+                    <div class="form-group form-inline col-md-4 mt-2">
+                        <label for="lblGroup">Group</label>
+                        <select class="form-control ml-2" id="ddlGroup" style="width: 14em;">
+                            <option value="0">C 1</option>
+                            <option value="1">C 2</option>
+                            <option value="2">C 3</option>
+                            <option value="3">C 4</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row ml-3">
+                    <div class="form-group form-inline col-md-4  mt-2">
+                        <label for="lblChecInLoc">Check Out Location</label>
+                        <select class="form-control ml-2" id="ddlChecInLoc" style="width: 12em;">
+                            <option value="0">Terminal 3</option>
+                            <option value="1">Terminal 3</option>
+                            <option value="2">Terminal 3</option>
+                            <option value="3">Terminal 3</option>
+                        </select>
+
+                    </div>
+                    <div class="form-group form-inline col-md-4  mt-2">
+                        <label for="lblChecOutLoc">Check Out Location</label>
+                        <select class="form-control ml-2" id="ddlChecOutLoc" style="width: 12em;">
+                            <option value="0">Terminal 1</option>
+                            <option value="1">Terminal 2</option>
+                            <option value="2">Terminal 3</option>
+                            <option value="3">Terminal 4</option>
+                        </select>
+
+                    </div>
+                    <div class="form-group form-inline col-md-4 mt-2">
+                        <label for="lblNoOfVehicle">No of Vehicle</label>
+                        <input type="text" id="txtNoOfVehicle" class="form-control" placeholder="No of Vehicle">
+                    </div>
+                </div>
+
+                <div class="form-row ml-3">
+                    <div class="form-group form-inline col-md-4  mt-2">
+                        <label for="lblRentalSum">Rental Sum</label>
+                        <input type="text" id="txtRentalSum" class="form-control" placeholder="Rental Sum" style="width: 72%;">
+                    </div>
+                    <div class="form-group form-inline col-md-8  mt-2">
+                        <label for="lblRemarks">Remarks</label>
+                        <input type="text" id="txtRemarks" class="form-control" placeholder="Remarks" style="width: 100%;">
+                    </div>
+
+                </div>
+
+            </div>
+            <!-- table start -->
+            <div class="row">
+
+                <table class="table table-bordered col-md-5 ml-3">
+                    <thead>
+                        <tr style="border:2px solid gray;">
+                            <th style="border-right: none;border-bottom: 2px solid gray;">Add Cost Component</th>
+                        </tr>
+                        <tr>
+                            <td>Selection</td>
+                            <td>Accessories</td>
+                            <td>Amount</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr>
+                            <td><input type="checkbox" id="cbPreSellFuel"></td>
+                            <td>PreSell fuel</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+
+                            <td><input type="checkbox" id="cbDelivery"></td>
+                            <td>Delivery</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+
+                            <td><input type="checkbox" id="cbCollection"></td>
+                            <td>Collection</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" id="cbSCDW"></td>
+                            <td>SCDW</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" id="cbWS"></td>
+                            <td>WS</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table table-bordered col-md-5 ml-2">
+                    <thead>
+                        <tr style="border:2px solid gray;">
+                            <th colspan="3" style="border: none;">Vehicle Accessories/Extra Selection</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="height: 10px;">
+                            <td>Selection</td>
+                            <td>Accessories</td>
+                            <td>Quantity</td>
+                            <td>Amount</td>
+
+                        </tr>
+                        <tr style="height: 10px;">
+                            <td><input type="checkbox" id="cbBabySeat"></td>
+                            <td>Baby Seat</td>
+                            <td>(Entry field)</td>
+                            <td>(Entry field)</td>
+                        </tr>
+                        <tr style="height: 10px;">
+                            <td><input type="checkbox" id="cbWifi"></td>
+                            <td>Wifi</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr style="height: 10px;">
+                            <td><input type="checkbox" id="cbADI"></td>
+                            <td>ADI</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr style="height: 10px;">
+                            <td><input type="checkbox" value=""></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr style="height: 10px;">
+                            <td><input type="checkbox" value=""></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!-- 3rd table -->
+                <table class="table table-bordered col-md-8 ml-2">
+                    <thead>
+                        <tr style="height: 10px;background-color: lightblue;">
+                            <th scope="col">Variable Name</th>
+                            <th scope="col">Amount</th>
+                            <th scope="col">VAT</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>RENTAL SUM(Rate should be taken )</td>
+                            <td>Value for single vehicles should be multiply with the no. </td>
+                            <td>5% of value displayed in Amount feild should be displayed by default</td>
+
+                        </tr>
+                        <tr>
+                            <td>Baby seat</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Wifi</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>ADI</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Parsel Fuel</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Delivery</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td>Collection</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>SCDW</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>WS</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Total</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+
+                </table>
+
+                <!-- 3rd table -->
+
+            </div>
+            <!-- tbl end -->
+            <div style="margin-left: 22em;margin-bottom: 5px;">
+                <button type="button" class="btn btn-primary" id="btnAdd" style="width: 6em;height:fit-content;">Add</button>
+                @*<button type="button" id="btnCloseModel" class="btn btn-primary" style="width: 6em;height:fit-content">Close</button>*@
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<script type="text/javascript">
+
+   
+
+    $("#btnAdd").click(function () {
+
+        var modelData = {
+            Make: $("#ddlMake option:selected").text(),
+            Model: $("#ddlModel option:selected").text(),
+            Group: $("#ddlGroup option:selected").text(),
+
+            CheckOutLocation: $("#ddlChecInLoc option:selected").text(),
+            CheckInLocation: $("#ddlChecOutLoc option:selected").text(),
+            NoOfVehicle: $("#txtNoOfVehicle").val(),
+
+            RentalSum: $('#txtRentalSum').val(),
+            Remarks: $('#txtRemarks').val(),
+
+            ParcelFuelAmount: $('#cbPreSellFuel').is(":checked"),
+            Delivery: $('#cbDelivery').is(":checked"),
+            Collection: $('#cbCollection').is(":checked"),
+            SCDW: $('#cbSCDW').is(":checked"),
+            WS: $('#cbWS').is(":checked"),
+
+            BabySeat: $('#cbBabySeat').is(":checked"),
+            Wifi: $('#cbWifi').is(":checked"),
+            ADI: $('#checkbox').is(":checked"),
+        };
+
+        quotaionDetail.push(modelData);
+
+        closeDetailDialogue();
+    });
+
+
+
+</script>
